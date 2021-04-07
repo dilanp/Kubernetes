@@ -42,4 +42,14 @@ kubectl exec pod/my-nginx-5bb9b897c8-fdwmt -it sh
 apk add curl
 #Now try to hit the IP address of the other pod.
 curl http://10.1.0.38
+#When you have setup a ClusterIp (default) service then, 
+#you can use that service name to access any random pod through the service.
 
+#Check logs of a pod.
+kubectl logs pod_name
+#If the pod has multiple containers.
+kubectl logs pod_name -c container_name
+#Logs of a previously running pod.
+kubectl logs -p pod_name
+#Stream logs of a pod.
+kubectl logs -f pod_name

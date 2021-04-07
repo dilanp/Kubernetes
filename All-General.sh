@@ -6,6 +6,9 @@ alias k="kubectl"
 #Get all stuff on a cluster.
 kubectl get all
 
+#Deploy all YAML files in a folder.
+kubectl apply -f folder_name
+
 #If you are using "create" instead of "apply" then always use  --save-config switch 
 #to add annotations into the metadata section.
 kubectl create -f nginx.pod.yml --save-config
