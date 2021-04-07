@@ -10,6 +10,10 @@ kubectl get rs
 #Get endpoints of a load balanced service.
 kubectl describe ep ps-lb
 
+#Horizontally scale pods in a deployment.
+kubectl scale deploy dep-name --replicas=5
+kubectl scale -f deployment.yml --replicas=5
+
 #Roll out an orderly update.
 #First, setup rollout strategy like in deploy-rolling-update.yml
 #Then push the deployment

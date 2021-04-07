@@ -5,10 +5,6 @@ kubectl port-forward my-nginx 8080:80
 
 #DECLARATIVE way of creating/updating a pod.
 kubectl apply -f pod.yml
-#OR create only with added deployment annotations into the metadata section.
-kubectl create -f nginx.pod.yml --save-config
-#Then check deployment annotations into the metadata section of yml.
-kubectl get pod my-nginx -o yaml
 
 #You may also dry run before running it actually...
 kubectl create -f nginx.pod.yml --dry-run=client
@@ -20,9 +16,6 @@ kubectl get pods --watch
 kubectl get pod pod-name -o wide
 kubectl get pod pod-name -o yaml
 kubectl get pods -o wide
-
-#Get detailed pod info.
-kubectl describe pod hello-pod
 
 #See pod label.
 kubectl get pods --show-labels
