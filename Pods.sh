@@ -30,3 +30,16 @@ kubectl delete -f multi-pod.yml
 
 #Delete a pod by name.
 kubectl delete pod hello-pod
+
+#Checking connectivity between pods...
+#Get full name of the pods and pick one.
+kubectl get pods
+#Note down the IP address of a different pod.
+kubectl get pods -o wide
+#Enter the shell of the picked pod.
+kubectl exec pod/my-nginx-5bb9b897c8-fdwmt -it sh
+#Install CURL package there.
+apk add curl
+#Now try to hit the IP address of the other pod.
+curl http://10.1.0.38
+
