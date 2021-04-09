@@ -3,11 +3,21 @@ Set-Alias –Name k –Value kubectl
 #Set Alias: Mac/Linux
 alias k="kubectl"
 
+#See the documentation of capabilities for any K8s object.
+kubectl explain pods
+kubectl explain pods.spec
+kubectl explain pods --recursive
+
 #Get all stuff on a cluster.
 kubectl get all
 
 #Deploy all YAML files in a folder.
 kubectl apply -f folder_name
+
+#Edit any object's configuration.
+kubectl edit sc standard
+#To edit in Visual Studio code RUN...
+export KUBE_EDITOR='code --wait'
 
 #If you are using "create" instead of "apply" then always use  --save-config switch 
 #to add annotations into the metadata section.

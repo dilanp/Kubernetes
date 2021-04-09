@@ -23,7 +23,7 @@ kubectl get pods --show-labels
 #Jump into the terminal of a container in a pod.
 kubectl exec my-nginx -it sh
 #If the pod has multiple containers then specify the container name.
-kubectl exec pod-name -c container-name -it /bin/sh
+kubectl exec pod-name -c container-name -it sh
 
 #Delete a pod by the manifest file.
 kubectl delete -f multi-pod.yml
@@ -53,3 +53,15 @@ kubectl logs pod_name -c container_name
 kubectl logs -p pod_name
 #Stream logs of a pod.
 kubectl logs -f pod_name
+
+#Init container pattern
+#======================
+# 1 - Init containers run before the appcontainers.
+# 2 - Completes before app containers starts.
+# 3 - Runs in order sequentially.
+# 4 - Pod restarts if one of the init containers fail.
+# 5 - Only run idempotent code in init containers.
+# 6 - Don't allocate init containers high resource limits or requests.
+#-----------------------
+# Adapter and Ambassador are also varieties of the Sidecar pattern
+

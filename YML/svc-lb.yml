@@ -1,13 +1,14 @@
 # LoadBalancer Service. Will only work on supported cloud platforms (AKS, EKS, GKE, DOK, IBM, LKE etc...)
-# Listens externally on 80 and forwards to Pod/container on 8080
+# Listens externally on 80 (port) and forwards to Pod/container on 80 (targetPort)
 apiVersion: v1
 kind: Service
 metadata:
-  name: ps-lb
+  name: lb
 spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 8080
   selector:
-    app: web
+    app: stg
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

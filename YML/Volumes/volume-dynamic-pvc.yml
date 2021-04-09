@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-htmlvol
+spec:
+  storageClassName: "ps-az-fast" #Referring to the storage class to be used.
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 15Gi

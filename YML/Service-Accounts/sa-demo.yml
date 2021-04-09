@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sa-demo
+spec:
+  terminationGracePeriodSeconds: 1
+  serviceAccountName: service-reader #Assigned to the custom service account we created!
+  containers:
+  - name: app #App container
+    image: nigelpoulton/curl:1.0
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "128Mi"
+    command: ['sh', '-c', 'sleep 9999']
+  - name: test1 #Ambassador container
+    image: nigelpoulton/k8s-api-proxy:1.0
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "128Mi"

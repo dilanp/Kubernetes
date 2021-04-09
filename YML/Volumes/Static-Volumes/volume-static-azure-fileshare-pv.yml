@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ps-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ps-fast
+  persistentVolumeReclaimPolicy: Retain
+  azureFile:
+    secretName: azure-secret #Create the secret "azure-secret" on Kubernetes cluster with storage account key.
+    shareName: ps-vol #Name of the file share.
+    readOnly: false

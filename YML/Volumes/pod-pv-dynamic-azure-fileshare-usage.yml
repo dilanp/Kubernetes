@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sc-pod
+  labels:
+    app: stg
+spec:
+  volumes:
+    - name: htmlvol
+      persistentVolumeClaim:
+        claimName: pvc-htmlvol #Claiming to the PVC that linked to a storage class.
+  containers:
+    - name: main-ctr
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: htmlvol #Container mounts the volume above.
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "200m"
+    - name: helper-ctr
+      image: ubuntu
+      command:
+      - /bin/bash
+      - "-c"
+      - "sleep 60m"
+      volumeMounts:
+      - mountPath: /data
+        name: htmlvol #Container mounts the volume above.
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "200m"
