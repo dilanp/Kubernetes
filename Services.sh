@@ -18,6 +18,8 @@ kubectl delete svc hello-svc
 kubectl apply -f svc-nodeport.yml
 #Load balancer example...
 
+#Get details of a service.
+kubectl get svc ps-nodeport
 
 #Describe the service details.
 kubectl describe svc ps-nodeport

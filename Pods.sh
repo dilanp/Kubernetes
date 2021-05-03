@@ -20,6 +20,9 @@ kubectl get pods -o wide
 #See pod label.
 kubectl get pods --show-labels
 
+#See a description and an audit trail of a pod.
+kubectl describe pod pod_name
+
 #Jump into the terminal of a container in a pod.
 kubectl exec my-nginx -it sh
 #If the pod has multiple containers then specify the container name.
@@ -34,6 +37,8 @@ kubectl delete pod hello-pod
 #Checking connectivity between pods...
 #Get full name of the pods and pick one.
 kubectl get pods
+#Get all pods running including K8s internals.
+kubectl get pods --all-namespaces
 #Note down the IP address of a different pod.
 kubectl get pods -o wide
 #Enter the shell of the picked pod.
