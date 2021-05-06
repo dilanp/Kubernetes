@@ -1,0 +1,21 @@
+apiVersion: apps/v1 #Replicaset is under apps group.
+kind: ReplicaSet # Deployment and Replicaset has the same YML structure!
+metadata:
+  name: myapp2-rs # Replicaset name
+spec:
+  replicas: 3 # Desired number of pods in the replicaset.
+  selector:
+    matchLabels:
+      app: myapp2 # The pod labels go here.
+  template: # The content below is the metadata section of any pod definition!!!
+    metadata:
+      name: myapp2-pod
+      labels:
+        app: myapp2
+    spec:
+      containers:
+        - name: myapp2-container
+          image: stacksimplify/kubenginx:2.0.0
+          ports: 
+            - containerPort: 80  
+    

@@ -1,14 +1,16 @@
 # LoadBalancer Service. Will only work on supported cloud platforms (AKS, EKS, GKE, DOK, IBM, LKE etc...)
-# Listens externally on 80 (port) and forwards to Pod/container on 80 (targetPort)
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb
+  name: lb # Name of the service
 spec:
+  type: LoadBalancer
   selector:
-    app: stg
+    app: stg # The pods you need to expose so, matching pod labels should go here.
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+      name: http
+      port: 80 # Service port
+      targetPort: 80 # Container port
+      

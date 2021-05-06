@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hello-pod
-  labels:
+  name: hello-pod # Mandatory for Pods.
+  labels: # Mandatory for Pods.
     app: web
 spec:
   containers:

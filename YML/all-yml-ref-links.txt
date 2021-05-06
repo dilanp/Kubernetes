@@ -1,0 +1,16 @@
+#Current documentation home page.
+# Replace v1.21 with future versions.
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/
+
+# Pods
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#pod-v1-core
+
+# Replicasets
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#replicaset-v1-apps
+
+#Deployments
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#deployment-v1-apps
+
+# Services
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#service-v1-core
+

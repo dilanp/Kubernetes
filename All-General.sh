@@ -3,7 +3,9 @@ Set-Alias –Name k –Value kubectl
 #Set Alias: Mac/Linux
 alias k="kubectl"
 
-#View everything created as part of a K8s cluster creation.
+#View all resources in the default namespace.
+kubectl get all
+#View all resources in all namespaces.
 kubectl get all --all-namespaces
 
 #See the documentation of capabilities for any K8s object.

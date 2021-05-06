@@ -7,9 +7,17 @@ spec:
   - name: main-ctr
     image: nigelpoulton/nginxadapter:1.0
     ports:
-    - containerPort: 80
+      - containerPort: 80
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "200m"
   - name: helper-ctr
     image: nginx/nginx-prometheus-exporter
     args: ["-nginx.scrape-uri","http://localhost/nginx_status"]
     ports:
-    - containerPort: 9113
+      - containerPort: 9113
+    resources:
+        limits:
+          memory: "128Mi"
+          cpu: "200m"

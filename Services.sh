@@ -18,6 +18,14 @@ kubectl delete svc hello-svc
 kubectl apply -f svc-nodeport.yml
 #Load balancer example...
 
+#Create a service imperatively.
+#If the port and target-port are both the same then --target-port parameter is not required.
+#If --type parameter is not specified then it is defaulted to 'ClusterIp'.
+kubectl expose pod my-first-pod --type=LoadBalancer --port=80 --name=my-first-service
+
+#Create a 'load balanced' service for a replicaset.
+kubectl expose rs my-helloworld-rs --type=LoadBalancer --port=80 --target-port=8080 --name=my-helloworld-rs-service
+
 #Get details of a service.
 kubectl get svc ps-nodeport
 

@@ -24,9 +24,18 @@ kubectl get pods --show-labels
 kubectl describe pod pod_name
 
 #Jump into the terminal of a container in a pod.
-kubectl exec my-nginx -it sh
+kubectl exec -it my-nginx -- sh
+kubectl exec -it my-first-pod -- /bin/bash
 #If the pod has multiple containers then specify the container name.
-kubectl exec pod-name -c container-name -it sh
+kubectl exec -it pod-name -c container-name -- sh
+kubectl exec -it pod-name -c container-name -- /bin/bash
+
+#Run a command directly inside the pod/container without going into a terminal.
+kubectl exec -it my-nginx -- ls-a
+kubectl exec -it pod-name -c container-name -- ls-a
+
+#Create a service for a pod.
+kubectl expose pod my-first-pod --type=LoadBalancer --port=80 --name=my-first-service
 
 #Delete a pod by the manifest file.
 kubectl delete -f multi-pod.yml

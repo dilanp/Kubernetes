@@ -1,0 +1,45 @@
+# 01 - Comments
+# =============
+# Start comments with # symbol.
+name: Dilan # The space after : is mandatory.
+age: 40
+city: Farnborough
+
+# 02 - Dictionary / Map
+# =====================
+# A dictionary has properties grouped together.
+# Normally 2 spaces (in VSCode - TAB) are required for the next level.
+person:
+  name: Dilan
+  age: 40
+  city: Farnborough
+
+# 03 - Lists
+# ==========
+hobbies:
+  - Cooking # List item is denoted by - character.
+  - Cycling # A space is mandatory after the - character.
+
+# 04 - Arrays (not used in K8s).
+# ==============================
+kids: [Prabhashi, Seth, Emilia]
+
+# 05 - List of multiple properties.
+# =================================
+friends:
+  - name: Anil
+    age: 37 # Each property has to be properly indented.
+  - name: Birman
+    age: 32
+
+# 06 - Document seperator.
+# ========================
+document-1:
+  name: document-1
+  path: /usr/dev/app/docs/doc1.txt
+
+--- # Seperates multiple documents in the same YML file using three - symbols.
+
+document-2:
+  name: document-2
+  path: /usr/dev/app/docs/doc2.txt
